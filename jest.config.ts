@@ -15,6 +15,7 @@ const config: Config = {
     // ...
     "^@/(.*)$": "<rootDir>/src/$1",
   },
+  modulePathIgnorePatterns: ["<rootDir>/tests/"],
   testEnvironment: "jsdom",
 };
 
