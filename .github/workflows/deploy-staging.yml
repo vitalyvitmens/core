@@ -32,4 +32,4 @@ jobs:
           host: ${{ secrets.STAGING_SSH_HOST }}
           username: ${{ secrets.STAGING_SSH_USERNAME }}
           password: ${{ secrets.STAGING_SSH_PASSWORD }}
-          script: source /.nvm/nvm.sh /deploy.sh
+          script: source /.nvm/nvm.sh | /deploy.sh
