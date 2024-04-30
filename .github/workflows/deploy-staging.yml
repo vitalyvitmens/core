@@ -26,10 +26,11 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: SSH Command
-        uses: appleboy/ssh-action@master
+        uses: D3rHase/ssh-command-action@v0.2.2
         with:
           # hostname / IP of the server
           host: ${{ secrets.STAGING_SSH_HOST }}
-          username: ${{ secrets.STAGING_SSH_USERNAME }}
-          password: ${{ secrets.STAGING_SSH_PASSWORD }}
-          script: source /.nvm/nvm.sh | /deploy.sh
+          user: ${{ secrets.STAGING_SSH_USERNAME }}
+          private_key: ${{ secrets.STAGING_SSH_PRIVATE_KEY }}
+          host_fingerprint: ${{ secrets.STAGING_SSH_FINGERPRINT }}
+          command: source ~/.nvm/nvm.sh; ~/deploy.sh
