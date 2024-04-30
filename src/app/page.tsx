@@ -8,7 +8,7 @@ export default async function Home() {
         revalidatePagePath="/"
         className="max-w-[300px] mb-10"
       />
-      <CoursesList revalidatePagePath="/" />
+      <CoursesList revalidatePagePath="/" className="max-w-[300px]" />
     </main>
   );
 }

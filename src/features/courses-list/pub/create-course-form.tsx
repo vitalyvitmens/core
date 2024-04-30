@@ -30,7 +30,7 @@ export function CreateCourseForm({
   className?: string;
   revalidatePagePath: string;
 }) {
-  const [isCreateTransitioning, startCreateTransition] = useTransition();
+  const [isCreateTransition, startCreateTransition] = useTransition();
   const form = useForm({
     resolver: zodResolver(createCourseFormSchema),
     defaultValues: {
@@ -75,7 +75,7 @@ export function CreateCourseForm({
             </FormItem>
           )}
         />
-        <Button className="mt-8" type="submit" disabled={isCreateTransitioning}>
+        <Button className="mt-8" type="submit" disabled={isCreateTransition}>
           Добавить
         </Button>
       </form>
