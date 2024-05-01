@@ -35,7 +35,7 @@ jobs:
           host_fingerprint: ${{ secrets.STAGING_SSH_FINGERPRINT }}
           command: source ~/.nvm/nvm.sh; ~/deploy.sh
   e2e:
-		needs: deploy
+	  needs: deploy
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
