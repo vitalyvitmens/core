@@ -1,4 +1,4 @@
-name: deploy staging
+name: deploy test
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     concurrency:
-      group: staging
+      group: test
       cancel-in-progress: true
     steps:
       - name: SSH Command
