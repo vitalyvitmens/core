@@ -1,4 +1,4 @@
-name: deploy prod and sync master
+name: deploy prod 
 
 on:
   push:
@@ -34,19 +34,3 @@ jobs:
           private_key: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
           host_fingerprint: ${{ secrets.PROD_SSH_FINGERPRINT }}
           command: source ~/.nvm/nvm.sh; ~/deploy.sh
-  sync-master:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: release
-      - name: Sync master branch
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git fetch origin master
-          git checkout master
-          git merge --ff-only release
-          git push origin master
