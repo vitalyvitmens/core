@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from "@/src/features/theme/theme-provider";
 import { ComposeChildren } from "@/src/shared/lib/react";
-import { AppSessionProvider } from "../entities/session/app-session-provider";
+import { AppSessionProvider } from "../entities/user/app-session-provider";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/src/shared/api/query-client";
 
