@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/src/shared/ui/button";
-import { Spinner } from "@/src/shared/ui/spinner";
+import { Button } from "@/shared/ui/button";
+import { Spinner } from "@/shared/ui/spinner";
 import { Github } from "lucide-react";
 import { ClientSafeProvider } from "next-auth/react";
 import { useOAuthSignIn } from "../_vm/use-oauth-sign-in";

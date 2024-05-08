@@ -1,4 +1,4 @@
-import { dbClient } from "@/src/shared/lib/db";
+import { dbClient } from "@/shared/lib/db";
 import { cache } from "react";
 
 class CoursesRepository {

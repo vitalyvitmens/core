@@ -1,5 +1,5 @@
-import { SignInForm } from "@/src/features/auth/sign-in-form.server";
-import { Card, CardContent, CardHeader } from "@/src/shared/ui/card";
+import { SignInForm } from "@/features/auth/sign-in-form.server";
+import { Card, CardContent, CardHeader } from "@/shared/ui/card";
 import Link from "next/link";
 import { Suspense } from "react";
 

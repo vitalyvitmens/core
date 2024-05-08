@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@/src/shared/ui/button";
+import { Button } from "@/shared/ui/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/src/shared/ui/card";
+} from "@/shared/ui/card";
 import { useTransition } from "react";
 
 export function CourseItem({

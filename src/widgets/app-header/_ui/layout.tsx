@@ -1,10 +1,10 @@
-import { Button } from "@/src/shared/ui/button";
+import { Button } from "@/shared/ui/button";
 import {
   Sheet,
   SheetTrigger,
   SheetContent,
   SheetHeader,
-} from "@/src/shared/ui/sheet";
+} from "@/shared/ui/sheet";
 import { Menu } from "lucide-react";
 
 export function Layout({

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/src/shared/ui/card";
+import { Card, CardContent, CardHeader } from "@/shared/ui/card";
 
 export default function VerifyRequestPage() {
   return (
