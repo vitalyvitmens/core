@@ -1,4 +1,4 @@
-import { ToggleTheme } from "@/src/features/theme/toggle-theme";
+import { ToggleTheme } from "@/features/theme/toggle-theme";
 import { Layout } from "./_ui/layout";
 import { Logo } from "./_ui/logo";
 import { MainNav } from "./_ui/main-nav";

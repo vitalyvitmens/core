@@ -1,4 +1,4 @@
-import { Separator } from "@/src/shared/ui/separator";
+import { Separator } from "@/shared/ui/separator";
 
 export default async function NewUserPage() {
   return (
