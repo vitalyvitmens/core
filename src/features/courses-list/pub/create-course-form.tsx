@@ -7,16 +7,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/src/shared/ui/form";
-import { Input } from "@/src/shared/ui/input";
-import { Textarea } from "@/src/shared/ui/textarea";
+} from "@/shared/ui/form";
+import { Input } from "@/shared/ui/input";
+import { Textarea } from "@/shared/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createCourseAction } from "../actions";
-import { Button } from "@/src/shared/ui/button";
-import { cn } from "@/src/shared/ui/utils";
+import { Button } from "@/shared/ui/button";
+import { cn } from "@/shared/ui/utils";
 
 const createCourseFormSchema = z.object({
   name: z.string(),

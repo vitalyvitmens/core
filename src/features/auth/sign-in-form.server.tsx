@@ -1,7 +1,7 @@
 "use server";
 
 import { getProviders } from "next-auth/react";
-import { cn } from "@/src/shared/ui/utils";
+import { cn } from "@/shared/ui/utils";
 import { EmailSignInForm } from "./_ui/email-sign-in-form";
 import { Divider } from "./_ui/divider";
 import { ProviderButton } from "./_ui/provider-button";

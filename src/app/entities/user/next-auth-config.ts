@@ -2,9 +2,9 @@ import { AuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { dbClient } from "@/src/shared/lib/db";
+import { dbClient } from "@/shared/lib/db";
 import { compact } from "lodash-es";
-import { privateConfig } from "@/src/shared/config/private";
+import { privateConfig } from "@/shared/config/private";
 import { createUserUseCase } from "./_use-cases/create-user";
 
 const prismaAdapter = PrismaAdapter(dbClient);

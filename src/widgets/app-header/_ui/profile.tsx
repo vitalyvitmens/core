@@ -8,21 +8,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/src/shared/ui/dropdown-menu";
+} from "@/shared/ui/dropdown-menu";
 import { LogOut, User } from "lucide-react";
-import { Button } from "@/src/shared/ui/button";
+import { Button } from "@/shared/ui/button";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/src/shared/ui/avatar";
-import { Skeleton } from "@/src/shared/ui/skeleton";
-import { useSignOut } from "@/src/features/auth/use-sign-out";
-import { SignInButton } from "@/src/features/auth/sign-in-button";
-import { useAppSession } from "@/src/app/entities/user/session.client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
+import { Skeleton } from "@/shared/ui/skeleton";
+import { useSignOut } from "@/features/auth/use-sign-out";
+import { SignInButton } from "@/features/auth/sign-in-button";
+import { useAppSession, useRole } from "@/app/entities/user/session.client";
 
 export function Profile() {
   const session = useAppSession();
   const { signOut, isPending: isLoadingSignOut } = useSignOut();
-
-  console.log(session.data);
 
   if (session.status === "loading") {
     return <Skeleton className="w-8 h-8 rounded-full" />;

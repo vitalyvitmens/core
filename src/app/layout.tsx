@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
-import { cn } from "@/lib/utils";
 import { AppProvider } from "./_providers/app-provider";
+import { cn } from "@/shared/ui/utils";
 
 export const metadata: Metadata = {
   title: "Create Next App",

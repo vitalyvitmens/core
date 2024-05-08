@@ -1,7 +1,7 @@
-import { createId } from "@/src/shared/lib/id";
+import { createId } from "@/shared/lib/id";
 import { ROLES, UserEntity } from "../_domain/types";
 import { userRepository } from "../_repositories/user.repository";
-import { privateConfig } from "@/src/shared/config/private";
+import { privateConfig } from "@/shared/config/private";
 
 type CreateUser = {
   email: string;

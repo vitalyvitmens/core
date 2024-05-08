@@ -6,11 +6,11 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from "@/src/shared/ui/form";
+} from "@/shared/ui/form";
 import { useForm } from "react-hook-form";
-import { Input } from "@/src/shared/ui/input";
-import { Button } from "@/src/shared/ui/button";
-import { Spinner } from "@/src/shared/ui/spinner";
+import { Input } from "@/shared/ui/input";
+import { Button } from "@/shared/ui/button";
+import { Spinner } from "@/shared/ui/spinner";
 import { useEmailSignIn } from "../_vm/use-email-sign-in";
 
 export function EmailSignInForm() {
