@@ -9,7 +9,7 @@ export default async function Layout({
   return (
     <>
       <AppHeader variant="private" />
-      <AuthorizedGuard>{children}</AuthorizedGuard>{" "}
+      <AuthorizedGuard>{children}</AuthorizedGuard>
     </>
   );
 }
