@@ -27,6 +27,7 @@ export function UpdateProfileForm({
   if (profileQuery.isPending) {
     return <Spinner aria-label="Загрузка профиля" />;
   }
+  
   if (!profileQuery.data) {
     return <div>Не удалось загрузить профиль, возможно у вас нет прав</div>;
   }
