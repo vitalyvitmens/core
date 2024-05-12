@@ -17,6 +17,8 @@ import { Input } from "@/shared/ui/input";
 import { Spinner } from "@/shared/ui/spinner";
 import { AvatarField } from "./avatar-field";
 import { Profile } from "@/app/entities/user/profile";
+import { UserId } from "@/app/entities/user/user";
+import { useUpdateProfile } from "../_vm/use-update-profile";
 
 const profileFormSchema = z.object({
   name: z
@@ -32,36 +34,59 @@ const profileFormSchema = z.object({
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
+const getDefaultValues = (profile: Profile) => {
+  return {
+    email: profile.email,
+    name: profile.name ?? "",
+    image: profile.image ?? undefined,
+  };
+};
+
 export function ProfileForm({
   onSuccess,
   submitText = "Сохранить",
   profile,
+  userId,
 }: {
+  userId: UserId;
   profile: Profile;
   onSuccess?: () => void;
   submitText?: string;
 }) {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
-    defaultValues: {
-      email: profile.email,
-      name: profile.name ?? "",
-      image: profile.image ?? undefined,
-    },
+    defaultValues: getDefaultValues(profile),
+  });
+
+  const updateProfile = useUpdateProfile();
+
+  const handleSubmit = form.handleSubmit(async (data) => {
+    const newProfile = await updateProfile.update({
+      userId,
+      data,
+    });
+
+    form.reset(getDefaultValues(newProfile.profile));
+    onSuccess?.();
   });
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(console.log)} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-8">
         <FormField
           control={form.control}
           name="email"
           disabled
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel htmlFor="email">Email</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field} />
+                <Input
+                  id="email"
+                  placeholder=""
+                  {...field}
+                  autoComplete="email"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -72,9 +97,14 @@ export function ProfileForm({
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Имя пользователя</FormLabel>
+              <FormLabel htmlFor="name">Имя пользователя</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field} />
+                <Input
+                  id="name"
+                  placeholder=""
+                  {...field}
+                  autoComplete="name"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -86,16 +116,20 @@ export function ProfileForm({
           disabled
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Аватарка</FormLabel>
+              <FormLabel htmlFor="image">Аватарка</FormLabel>
               <FormControl>
-                <AvatarField value={field.value} onChange={field.onChange} />
+                <AvatarField
+                  id="image"
+                  value={field.value}
+                  onChange={field.onChange}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit">
-          {false && (
+          {updateProfile.isPending && (
             <Spinner
               className="mr-2 h-4 w-4 animate-spin"
               aria-label="Обновление профиля"
