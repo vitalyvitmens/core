@@ -1,21 +1,22 @@
 import { Button } from "@/shared/ui/button";
-import { useMutation } from "@tanstack/react-query";
-// import { selectFile } from "@/shared/lib/file";
 import { Spinner } from "@/shared/ui/spinner";
 import { ProfileAvatar } from "@/app/entities/user/profile";
 
 export function AvatarField({
   value,
   onChange,
+  id,
 }: {
   value?: string;
   onChange: (value?: string) => void;
+  id?: string;
 }) {
   return (
     <Button
       variant="ghost"
       className="w-[84px] h-[84px] p-0.5 rounded-full relative block"
       type="button"
+      id={id}
     >
       {false && (
         <div className="inset-0 absolute flex items-center justify-center z-10">
